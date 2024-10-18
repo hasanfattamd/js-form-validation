@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 1.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" onsubmit="return data()">
+        Name : <input type="text" id="name"><br>
+        Email : <input type="email" id="email"><br>
+        Mobile : <input type="text" id="mobile"><br>
+        Password : <input type="password" id="password"><br>
+        Confirm Password : <input type="password" id="confirm"><br>
+        <input type="submit" value="Submit" id="butt"><br>
+        <p id="text"></p><br>
+    </form>
+
+    <!--  -->
+    Num1 : <input type="text" id="num1"><br>
+    Num2 : <input type="text" id="num2"><br>
+    <button id="taper">Click</button><br>
+    <br>
+    <br>
+    <!--  -->
+    Laptop 60000 : <input type="checkbox" id="a"><br>
+    Mobile 15000 : <input type="checkbox" id="b"><br>
+    Earbuds 1500 : <input type="checkbox" id="c"><br>
+    Speaker 4000 : <input type="checkbox" id="d"><br>
+    <button id="order">Order</button><br>
+    <p id="write"></p>
+
+
+    <!-- JS -->
+    <script>
+        function data() {
+            let a = document.getElementById("name").value
+            let b = document.getElementById("email").value
+            let c = document.getElementById("mobile").value
+            let d = document.getElementById("password").value
+            let e = document.getElementById("confirm").value
+
+            if (a == "" || b == "" || c == "" || d == "" || e == "") {
+                document.getElementById("text").innerHTML = "All fields are mandatory !"
+                return false;
+            } else if (c.length != 10) {
+                document.getElementById("text").innerHTML = "Number must be 10 digit !"
+                return false;
+            } else if (isNaN(c)) {
+                document.getElementById("text").innerHTML = "Only numbers are allowed !"
+                return false;
+            } else if (d != e) {
+                document.getElementById("text").innerHTML = "Password must be same !"
+                return false;
+            }
+            else {
+                true;
+            }
+        }
+
+        //
+    
+        let h = document.getElementById("taper");
+        h.addEventListener("click", () => {
+            let f = document.getElementById("num1").value
+            let g = document.getElementById("num2").value
+            let sum = Number(f) + Number(g);
+            alert(`Sum of two numbers: ${sum}`);
+        })
+        
+
+        //
+        let i = document.getElementById("a")
+        let j = document.getElementById("b")
+        let k = document.getElementById("c")
+        let l = document.getElementById("d")
+        let m = document.getElementById("order")
+        let n = document.getElementById("write")
+        let temp1 = 0;
+        let temp2 = 0;
+        let temp3 = 0;
+        let temp4 = 0;
+        i.addEventListener("click", () => {
+            temp1 = 60000;
+        });
+        j.addEventListener("click", () => {
+            temp2 = 15000;
+        });
+        k.addEventListener("click", () => {
+            temp3 = 1500;
+        });
+        l.addEventListener("click", () => {
+            temp4 = 4000;
+        });
+        m.addEventListener("click", () => {
+            let total = temp1 + temp2 + temp3 + temp4;
+            n.innerHTML=`Total is: ${total}`;
+
+        });
+    </script>
+</body>
+
+</html>

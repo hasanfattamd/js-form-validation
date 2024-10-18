@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Validation</title>
+</head>
+<body>
+    <h1>Name Input</h1>
+    <form id="nameForm">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="message" style="color: red;"></p>
+    <script>
+        document.getElementById('nameForm').addEventListener('submit',function(event){
+            event.preventDefault() // Prevent form submission
+
+        // Check if input contains only characters
+        const nameInput=document.getElementById('name').value;
+        const message=document.getElementById('message');
+        // const exp=
+
+        if(!/^[A-Za-z]+$/.test(nameInput)){
+            message.textContent="Only characters are allowed";
+        }else{
+            message.textContent="Success";
+        }
+        });       
+    </script>
+</body>
+</html>

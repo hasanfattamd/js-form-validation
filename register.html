@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event registration</title>
+</head>
+<body>
+    <div class="form-group">
+    <form action="event.html" onsubmit="return validateForm()">
+            Name: <input type="text" name="" id="name"><br><br>
+            Email: <input type="email" name="" id="email"><br><br>
+            Mobile: <input type="text" name="" id="mobile"><br><br>
+            Password: <input type="password" name="" id="pwd"><br><br>
+            Confirm Password: <input type="password" name="" id="confirm"><br><br>
+            <input type="submit" value="Submit"> 
+            <p id="message"></p>   
+        </form>
+    </div>
+    <script>
+        function validateForm(){
+        
+        let name=document.getElementById('name').value
+        let email=document.getElementById('email').value
+        let mobile=document.getElementById('mobile').value
+        let pwd=document.getElementById('pwd').value
+        let confirm=document.getElementById('confirm').value
+        let message=document.getElementById('message');
+        
+        if(name=="" || email == "" || mobile==""||pwd==""||confirm==""){
+            message.innerHTML="All fields are mandatory";
+            return false;
+        }else if(mobile.length!=10){
+            message.innerHTML="At least 10 are mandatory";
+            return false;
+        } else if(isNaN(mobile)){
+            message.innerHTML="Only numbers are allowed";
+            return false;
+        } else if(pwd!=confirm){
+            message.innerHTML="Password does not match with the confirm password"
+            return false;
+        } else if(pwd.length!=8){
+            message.innerHTML="Password must be 8 characters long";
+            return false;
+        }else{
+            message.innerHTML="Success";
+            return true;
+        }
+
+        }
+    </script>
+</body>
+</html>

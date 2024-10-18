@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #188774;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 50px;
+      text-align: center;
+      width: 325px;
+      border-radius: 5px;
+    }
+
+    h2 {
+      margin: 0px 0px 10px 0px;
+    }
+
+    input {
+      width: 70%;
+      margin: 10px 0px;
+      padding: 10px;
+      border-radius: 100px;
+      border: 1px solid #00000076
+    }
+
+    input[type="submit"] {
+      width: 222px;
+      background-color: #188774;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #37a497;
+    }
+
+    .error {
+      color: red;
+      margin: 0px;
+      text-align: left;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    #message {
+      color: red;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>login</h2>
+    <form onsubmit="return validateForm()">
+      <input type="text" id="username" placeholder="Username" /><br />
+      <p id="userError" class="error"></p>
+      <input type="password" id="password" placeholder="Password" /><br />
+      <p id="passError" class="error"></p>
+      <input type="email" id="email" placeholder="Enter a email">
+      <br>
+      <input type="text" id="number" placeholder="number">
+      <br>
+      <input type="submit" value="submit" />
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <!-- <script>
+    let username = document.getElementById("username");
+    let password = document.getElementById("password");
+    function validateForm() {
+      if (username.value == "") {
+        document.getElementById('userError').innerHTML = "Username cannot empty!";
+      } else if (username.value.length < 3) {
+        document.getElementById('userError').innerHTML = "Username must be at least 3 characters";
+      }
+      return false;
+    }
+  </script> -->
+
+  <script>
+    function validateForm() {
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+      let num = document.getElementById("number").value;
+
+      if (username == "" || password == '' || number == '' || email == '') {
+        document.getElementById('message').innerHTML = "All fields are mandatory!";
+        return false;
+      } else if (password.length < 8) {
+        document.getElementById('userError').innerHTML = "Password must be at least 8 characters";
+        return false;
+      } else if (isNaN(num)) {
+        document.getElementById('message').innerHTML = "Please enter numbers only!"
+        return false;
+      } else if (num.length != 10) {
+        document.getElementById('message').innerHTML = "Please enter at least 10 numbers"
+        return false;
+      } else {
+        true;
+      }
+    }
+  </script>
+</body>
+
+</html>

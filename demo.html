@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 1.7rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        Name : <input type="text" id="name"><br>
+        Email : <input type="email" id="email"><br>
+        Mobile : <input type="text" id="mobile"><br>
+        Password : <input type="password" id="pass"><br>
+        Confirm Password : <input type="password" id="confirm"><br>
+        <input type="submit" value="Submit">
+        <p id="text"></p>
+    </form>
+    <br>
+    <br>
+    (60000)Laptop : <input type="checkbox" id="laptop"><br>
+    (15000)Mobile : <input type="checkbox" id="mobile"><br>
+    (3000)Earbuds : <input type="checkbox" id="earbuds"><br>
+    (5000)Speaker : <input type="checkbox" id="speaker"><br>
+    <input type="button" id="butt" value="Order"><br>
+    <p id="write"></p>
+    <!-- JS -->
+    <script>
+        function data() {
+            let a = document.getElementById("name").value
+            let b = document.getElementById("email").value
+            let c = document.getElementById("mobile").value
+            let d = document.getElementById("pass").value
+            let e = document.getElementById("confirm").value
+            if (a == "" || b == "" || c == "" || d == "" || e == "") {
+                document.getElementById("text").innerHTML = "All fields are mandatory!"
+                return false
+            } else if (c.length != 10) {
+                document.getElementById("text").innerHTML = "Number must be 10 digit!"
+                return false
+            } else if (isNaN(c)) {
+                document.getElementById("text").innerHTML = "Only numbers are allowed!"
+                return false
+            } else if (d != e) {
+                document.getElementById("text").innerHTML = "Password must be contain!"
+                return false
+            } else {
+                return true
+            }
+
+        }
+
+        let f = document.getElementById("laptop");
+        let g = document.getElementById("mobile");
+        let h = document.getElementById("earbuds");
+        let i = document.getElementById("speaker");
+        let j = document.getElementById("butt");
+        let k = document.getElementById("write");
+        let temp1 = 0;
+        let temp2 = 0;
+        let temp3 = 0;
+        let temp4 = 0;
+        f.addEventListener("click", () => {
+            temp1 = 60000
+        })
+        g.addEventListener("click", () => {
+            temp2 = 15000
+        })
+        h.addEventListener("click", () => {
+            temp3 = 3000
+        })
+        i.addEventListener("click", () => {
+            temp4 = 5000
+        })
+        j.addEventListener("click", () => {
+            let sum = temp1 + temp2 + temp3 + temp4;
+            console.log(sum);
+        })
+    </script>
+</body>
+
+</html>

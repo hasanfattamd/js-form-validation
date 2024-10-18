@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+                Cricket<input type="checkbox" id="cricket"><br><br>
+                Football<input type="checkbox" id="football"><br><br>
+                Baseball<input type="checkbox" id="baseball"><br><br>
+                Tennis<input type="checkbox" id="tennis"><br><br>
+                Basketball<input type="checkbox" id="basket"><br><br>
+                <button id="btnSubmit">Submit</button>
+                <p id="message"></p>
+
+                <script>
+                    let cricket=document.getElementById('cricket')
+                    let football=document.getElementById('football')
+                    let baseball=document.getElementById('baseball')
+                    let tennis=document.getElementById('tennis')
+                    let basket=document.getElementById('basket')
+                    let btn=document.getElementById('btnSubmit')
+                    let message=document.getElementById('message');
+                    let p1=0
+                    let p2=0
+                    let p3=0
+                    let p4=0
+                    let p5=0                    
+                    cricket.addEventListener('click',()=>{
+                        p1=1;
+                    })
+                    football.addEventListener('click',()=>{
+                        p2=1;
+                    })
+                    baseball.addEventListener('click',()=>{
+                        p3=1;
+                    })
+                    tennis.addEventListener('click',()=>{
+                        p4=1;
+                    })
+                    basket.addEventListener('click',()=>{
+                        p5=1;
+                    })
+                    
+                    btn.addEventListener('click',()=>{
+                        let sum=p1+p2+p3+p4+p4+p5;
+                        // console.log(sum)
+                        if(sum>2){
+                            message.innerHTML=`You can't  participate more ${sum} events`;
+                            // console.log(sum)
+                        }
+                        else{
+                            message.innerHTML=`Congratulation, You are now participate in ${sum} events`;
+                            window.open('greet.html','_blank');
+                        }
+                    })
+                    
+                </script>
+</body>
+</html>
